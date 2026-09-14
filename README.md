@@ -84,6 +84,32 @@ besar/kecil.
 Kedua file dibuat ulang secara deterministik lewat `npm run generate:demo`
 (lihat `scripts/generate-demo.mjs`).
 
+## Deploy ke Vercel
+
+Aplikasi berada di **root repository**, jadi Vercel mendeteksi Next.js tanpa
+konfigurasi tambahan:
+
+- **Root Directory**: biarkan kosong (`./`). Jangan diisi nama folder.
+- **Framework Preset**: Next.js (terdeteksi otomatis).
+- **Build Command** dan **Output Directory**: biarkan default.
+- **Production Branch**: `main`.
+
+Tidak ada environment variable yang dibutuhkan — aplikasi berjalan sepenuhnya
+di browser tanpa backend.
+
+Jika URL produksi membalas `404` dengan header `x-vercel-error: NOT_FOUND`,
+berarti domain belum terpasang ke deployment, bukan masalah pada kode. Periksa
+Settings → Domains. Jika URL justru dialihkan ke `vercel.com/sso-api`,
+Deployment Protection sedang aktif (Settings → Deployment Protection →
+Vercel Authentication).
+
+Setelah live, uji ulang hasil deploy dengan suite end-to-end:
+
+```bash
+npm install --no-save playwright
+BASE_URL=https://alamat-produksi-anda npm run e2e
+```
+
 ## Privasi
 
 - File dibaca, dibandingkan, dan diekspor sepenuhnya di browser.
