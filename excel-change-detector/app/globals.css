@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@import "./transitions.css";
+
+/*
+ * Palet: background off-white, teks gelap, satu aksen oranye.
+ * Warna kategori: hijau (ditambahkan), merah (dihapus), amber (berubah),
+ * abu-abu (tetap). Warna selalu didampingi label teks, tidak pernah berdiri
+ * sendiri sebagai satu-satunya penanda.
+ */
+:root {
+  color-scheme: light;
+
+  --background: #faf9f6;
+  --surface: #ffffff;
+  --foreground: #1c1917;
+  --muted: #57534e;
+  --border: #e7e5e4;
+  --accent: #ea580c;
+
+  /* Panel hasil muncul dari jarak pendek supaya tidak terasa berlebihan. */
+  --panel-translate-y: 12px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-line: var(--border);
+  --color-accent: var(--accent);
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Fokus yang konsisten dan terlihat untuk navigasi keyboard. */
+:where(a, button, input, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Dipakai oleh loading state, memakai pulse dari resep skeleton-reveal. */
+.skeleton-bar {
+  background: #e7e5e4;
+  border-radius: 6px;
+}
