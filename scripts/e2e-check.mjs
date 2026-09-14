@@ -81,7 +81,13 @@ const fixtures = {
 fixtures.notExcel = path.join(workDir, "bukan_excel.csv");
 fs.writeFileSync(fixtures.notExcel, "Dealer ID,Nama\n0001,A\n");
 
-const browser = await chromium.launch(EXECUTABLE_PATH ? { executablePath: EXECUTABLE_PATH } : {});
+// Di lingkungan yang mewajibkan proxy keluar, teruskan ke browser lewat
+// HTTPS_PROXY/HTTP_PROXY supaya pengujian ke URL produksi bisa jalan.
+const proxyServer = process.env.HTTPS_PROXY ?? process.env.HTTP_PROXY;
+const launchOptions = {};
+if (EXECUTABLE_PATH) launchOptions.executablePath = EXECUTABLE_PATH;
+if (proxyServer && !BASE.includes("localhost")) launchOptions.proxy = { server: proxyServer };
+const browser = await chromium.launch(launchOptions);
 const context = await browser.newContext({ acceptDownloads: true });
 const page = await context.newPage();
 
