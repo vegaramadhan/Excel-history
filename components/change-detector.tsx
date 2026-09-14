@@ -7,7 +7,7 @@ import { readExcelFile } from "@/lib/excel";
 import { downloadResult } from "@/lib/export";
 import type { CompareResult, ParsedSheet } from "@/lib/types";
 import { FileDrop } from "./file-drop";
-import { AlertIcon, DownloadIcon, LockIcon } from "./icons";
+import { AlertIcon, DownloadIcon, LockIcon, LogoMark } from "./icons";
 import { ResultTable } from "./result-table";
 import { SettingsPanel } from "./settings-panel";
 import { SummaryCards } from "./summary-cards";
@@ -231,10 +231,17 @@ export function ChangeDetector() {
   return (
     <main className="mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
       <header>
-        <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">Excel Change Detector</h1>
-        <p className="mt-1.5 text-sm text-muted sm:text-base">
-          Bandingkan dua Excel. Temukan apa yang berubah.
-        </p>
+        <div className="flex items-center gap-3">
+          <LogoMark className="h-9 w-9 shrink-0 sm:h-11 sm:w-11" />
+          <div className="min-w-0">
+            <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+              Excel Change Detector
+            </h1>
+            <p className="mt-0.5 text-sm text-muted sm:text-base">
+              Bandingkan dua Excel. Temukan apa yang berubah.
+            </p>
+          </div>
+        </div>
         <p className="mt-3 inline-flex items-start gap-2 rounded-lg border border-line bg-surface px-3 py-2 text-xs text-muted">
           <LockIcon className="mt-px h-3.5 w-3.5 shrink-0 text-green-700" />
           File diproses di browser Anda, tidak diunggah ke server.

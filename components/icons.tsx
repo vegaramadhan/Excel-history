@@ -84,3 +84,29 @@ export function DownloadIcon({ className }: IconProps) {
     </svg>
   );
 }
+
+/**
+ * Logo aplikasi: dua lembar bertumpuk (file lama dan file baru) dengan tiga
+ * baris berwarna sesuai kategori perubahan. Ditulis inline agar tidak ada
+ * permintaan jaringan tambahan.
+ */
+export function LogoMark({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 32 32" role="img" aria-label="Excel Change Detector">
+      <rect x="10.5" y="2" width="19.5" height="25" rx="3" fill="#e7e5e4" />
+      <rect
+        x="2"
+        y="5"
+        width="19.5"
+        height="25"
+        rx="3"
+        fill="#ffffff"
+        stroke="#ea580c"
+        strokeWidth="1.8"
+      />
+      <rect x="6" y="11" width="11.5" height="2.6" rx="1.3" fill="#16a34a" />
+      <rect x="6" y="16.2" width="8" height="2.6" rx="1.3" fill="#f59e0b" />
+      <rect x="6" y="21.4" width="10" height="2.6" rx="1.3" fill="#dc2626" />
+    </svg>
+  );
+}

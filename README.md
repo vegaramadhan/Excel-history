@@ -141,6 +141,21 @@ transitions/         Resep micro-interaction dari transitions.dev (set gratis)
 Fungsi pembacaan, perbandingan, dan ekspor sengaja dipisahkan dari komponen
 tampilan agar bisa diuji tanpa merender UI.
 
+## Logo
+
+Dua berkas SVG, keduanya memakai palet aplikasi:
+
+- `public/logo.svg` — lambang utama: dua lembar bertumpuk (file lama dan file
+  baru) dengan tiga baris berwarna hijau, amber, dan merah sesuai kategori
+  perubahan. Garis tepi oranye adalah warna aksen aplikasi.
+- `app/icon.svg` — varian favicon dengan latar oranye penuh dan batang lebih
+  tebal agar tetap terbaca pada ukuran 16px. Next.js memasangnya otomatis
+  sebagai ikon situs.
+
+Lambang yang sama ditulis inline sebagai komponen `LogoMark` di
+`components/icons.tsx` dan dipakai di header, sehingga tidak menambah
+permintaan jaringan.
+
 ## Teknologi
 
 - Next.js (App Router) + React + TypeScript
