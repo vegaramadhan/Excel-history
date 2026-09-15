@@ -237,7 +237,7 @@ export function ChangeDetector() {
             <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
               Excel Change Detector
             </h1>
-            <p className="mt-0.5 text-sm text-muted sm:text-base">
+            <p className="mt-0.5 text-sm text-foreground/90 sm:text-base">
               Bandingkan dua Excel. Temukan apa yang berubah.
             </p>
           </div>
@@ -364,7 +364,7 @@ export function ChangeDetector() {
           <div className="t-panel-slide space-y-4" data-open="true">
             <SummaryCards summary={result.summary} active={filter} onSelect={setFilter} />
 
-            <p className="text-xs text-muted">
+            <p className="rounded-lg border border-line bg-surface px-3 py-2 text-xs text-muted">
               Dibandingkan berdasarkan kolom{" "}
               <span className="font-medium text-foreground">{result.idColumn}</span>
               {result.ignoredColumns.length > 0 && (
@@ -378,7 +378,7 @@ export function ChangeDetector() {
         )}
 
         {!comparing && !result && (
-          <div className="rounded-xl border border-dashed border-stone-300 bg-surface/60 p-8 text-center">
+          <div className="rounded-xl border border-dashed border-stone-300 bg-surface p-8 text-center">
             <p className="text-sm font-medium">Belum ada hasil</p>
             <p className="mx-auto mt-1.5 max-w-md text-sm text-muted">
               Pilih file lama dan file baru, tentukan kolom ID, lalu tekan Bandingkan. Belum punya
@@ -388,7 +388,7 @@ export function ChangeDetector() {
         )}
       </div>
 
-      <footer className="mt-10 border-t border-line pt-5 text-xs leading-relaxed text-muted">
+      <footer className="mt-10 rounded-lg border border-line bg-surface p-4 text-xs leading-relaxed text-muted">
         <p>
           Hanya mendukung .xlsx, maksimal 5 MB dan 5.000 baris per file. Sheet pertama dibaca,
           baris pertama dianggap header. Data tidak disimpan ke server, localStorage, maupun

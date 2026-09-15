@@ -2,15 +2,17 @@
 @import "./transitions.css";
 
 /*
- * Palet: background off-white, teks gelap, satu aksen oranye.
+ * Palet: background oranye, teks gelap, kartu putih sebagai permukaan.
  * Warna kategori: hijau (ditambahkan), merah (dihapus), amber (berubah),
  * abu-abu (tetap). Warna selalu didampingi label teks, tidak pernah berdiri
- * sendiri sebagai satu-satunya penanda.
+ * sendiri sebagai satu-satunya penanda. Kartu ringkasan dan empty state
+ * memakai warna solid (bukan transparan) supaya tidak luntur tercampur
+ * dengan latar oranye di belakangnya.
  */
 :root {
   color-scheme: light;
 
-  --background: #faf9f6;
+  --background: #ea580c;
   --surface: #ffffff;
   --foreground: #1c1917;
   --muted: #57534e;
